@@ -577,3 +577,99 @@ function changeSlide() {
 if (slides.length > 0) {
     setInterval(changeSlide, 5000);
 }
+
+// ============================================
+// FORMULARIOS CON FORMSPREE (SIN REDIRECCIÓN)
+// ============================================
+
+// Formulario de Contacto
+var contactForm = document.getElementById('contactForm');
+var contactMessage = document.getElementById('contactFormMessage');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        var formData = new FormData(contactForm);
+        
+        contactMessage.textContent = 'Enviando...';
+        contactMessage.className = 'form-message info';
+        contactMessage.style.display = 'block';
+        
+        fetch('https://formspree.io/f/mbdppday', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(function(response) {
+            if (response.ok) {
+                contactMessage.textContent = '✅ ¡Mensaje enviado con éxito! Te contactaremos pronto.';
+                contactMessage.className = 'form-message success';
+                contactForm.reset();
+            } else {
+                contactMessage.textContent = '❌ Hubo un error al enviar el mensaje. Intenta de nuevo.';
+                contactMessage.className = 'form-message error';
+            }
+            
+            setTimeout(function() {
+                contactMessage.style.display = 'none';
+            }, 5000);
+        }).catch(function() {
+            contactMessage.textContent = '❌ Error de conexión. Verifica tu internet.';
+            contactMessage.className = 'form-message error';
+            setTimeout(function() {
+                contactMessage.style.display = 'none';
+            }, 5000);
+        });
+    });
+}
+
+// Formulario de Reservas
+var bookingForm = document.getElementById('bookingForm');
+var bookingMessage = document.getElementById('bookingFormMessage');
+
+if (bookingForm) {
+    var dateInput = document.getElementById('book_date');
+    if (dateInput) {
+        var today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+    }
+    
+    bookingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        var formData = new FormData(bookingForm);
+        
+        bookingMessage.textContent = 'Enviando...';
+        bookingMessage.className = 'form-message info';
+        bookingMessage.style.display = 'block';
+        
+        fetch('https://formspree.io/f/mbdppday', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(function(response) {
+            if (response.ok) {
+                bookingMessage.textContent = '✅ ¡Cita reservada con éxito! Te confirmaremos por email o teléfono.';
+                bookingMessage.className = 'form-message success';
+                bookingForm.reset();
+            } else {
+                bookingMessage.textContent = '❌ Hubo un error al enviar la reserva. Intenta de nuevo.';
+                bookingMessage.className = 'form-message error';
+            }
+            
+            setTimeout(function() {
+                bookingMessage.style.display = 'none';
+            }, 5000);
+        }).catch(function() {
+            bookingMessage.textContent = '❌ Error de conexión. Verifica tu internet.';
+            bookingMessage.className = 'form-message error';
+            setTimeout(function() {
+                bookingMessage.style.display = 'none';
+            }, 5000);
+        });
+    });
+}

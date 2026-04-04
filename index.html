@@ -205,31 +205,31 @@
         <p class="subtitle" data-translate="booking_subtitle">Solicita una revisión o mantenimiento</p>
 
         <div class="booking-wrapper">
-            <form action="https://formspree.io/f/mbdppday" method="POST" class="booking-form">
+            <form id="bookingForm" class="booking-form">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="book_name" data-translate="booking_name_label">Nombre completo *</label>
-                        <input type="text" id="book_name" name="book_name" data-translate="booking_name_placeholder" placeholder="Tu nombre completo" required>
+                        <label data-translate="booking_name_label">Nombre completo *</label>
+                        <input type="text" name="Nombre" id="book_name" data-translate="booking_name_placeholder" placeholder="Tu nombre completo" required>
                     </div>
                     <div class="form-group">
-                        <label for="book_email" data-translate="booking_email_label">Correo electrónico *</label>
-                        <input type="email" id="book_email" name="book_email" data-translate="booking_email_placeholder" placeholder="tu@email.com" required>
+                        <label data-translate="booking_email_label">Correo electrónico *</label>
+                        <input type="email" name="Email" id="book_email" data-translate="booking_email_placeholder" placeholder="tu@email.com" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="book_phone" data-translate="booking_phone_label">Teléfono *</label>
-                        <input type="tel" id="book_phone" name="book_phone" data-translate="booking_phone_placeholder" placeholder="+5999 5236873" required>
+                        <label data-translate="booking_phone_label">Teléfono *</label>
+                        <input type="tel" name="Telefono" id="book_phone" data-translate="booking_phone_placeholder" placeholder="+5999 5236873" required>
                     </div>
                     <div class="form-group">
-                        <label for="book_date" data-translate="booking_date_label">Fecha preferida *</label>
-                        <input type="date" id="book_date" name="book_date" required>
+                        <label data-translate="booking_date_label">Fecha preferida *</label>
+                        <input type="date" name="Fecha" id="book_date" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="book_time" data-translate="booking_time_label">Hora preferida</label>
-                        <select id="book_time" name="book_time">
+                        <label data-translate="booking_time_label">Hora preferida</label>
+                        <select name="Hora" id="book_time">
                             <option value="" data-translate="booking_time_placeholder">Selecciona una hora</option>
                             <option value="08:00" data-translate="time_0800">08:00 - 09:00</option>
                             <option value="09:00" data-translate="time_0900">09:00 - 10:00</option>
@@ -244,8 +244,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="book_service" data-translate="booking_service_label">Tipo de servicio *</label>
-                        <select id="book_service" name="book_service" required>
+                        <label data-translate="booking_service_label">Tipo de servicio *</label>
+                        <select name="Servicio" id="book_service" required>
                             <option value="" data-translate="booking_service_placeholder">Selecciona un servicio</option>
                             <option value="mecanica" data-translate="service_mecanica">Reparación mecánica</option>
                             <option value="hidraulica" data-translate="service_hidraulica">Sistemas hidráulicos</option>
@@ -258,15 +258,15 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="book_equipo" data-translate="booking_equipo_label">Equipo / Marca / Modelo</label>
-                    <input type="text" id="book_equipo" name="book_equipo" data-translate="booking_equipo_placeholder" placeholder="Ej: Excavadora Caterpillar 320D">
+                    <label data-translate="booking_equipo_label">Equipo / Marca / Modelo</label>
+                    <input type="text" name="Equipo" id="book_equipo" data-translate="booking_equipo_placeholder" placeholder="Ej: Excavadora Caterpillar 320D">
                 </div>
                 <div class="form-group">
-                    <label for="book_message" data-translate="booking_message_label">Descripción del problema o necesidad</label>
-                    <textarea id="book_message" name="book_message" rows="3" data-translate="booking_message_placeholder" placeholder="Describe la falla o el servicio que necesitas..."></textarea>
+                    <label data-translate="booking_message_label">Descripción del problema o necesidad</label>
+                    <textarea name="Mensaje" id="book_message" rows="3" data-translate="booking_message_placeholder" placeholder="Describe la falla o el servicio que necesitas..."></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary" data-translate="booking_submit_btn">📅 Reservar cita</button>
-                <div id="bookingMessage" class="form-message"></div>
+                <div id="bookingFormMessage" class="form-message"></div>
             </form>
         </div>
     </div>
