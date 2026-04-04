@@ -107,129 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateActiveLink();
     
     // ============================================
-    // 5. FUNCIONES AUXILIARES
-    // ============================================
-    
-    function isValidEmail(email) {
-        var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-    
-    function showMessage(element, msg, type) {
-        if (element) {
-            element.textContent = msg;
-            element.className = 'form-message ' + type;
-            element.style.display = 'block';
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-    
-    // ============================================
-    // 6. FORMULARIO DE CONTACTO
-    // ============================================
-    
-    var contactForm = document.getElementById('contactForm');
-    var contactMessage = document.getElementById('contactMessage');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            var nameField = document.getElementById('contact_name');
-            var emailField = document.getElementById('contact_email');
-            var messageField = document.getElementById('contact_message');
-            
-            var name = nameField ? nameField.value.trim() : '';
-            var email = emailField ? emailField.value.trim() : '';
-            var message = messageField ? messageField.value.trim() : '';
-            
-            if (!name || !email || !message) {
-                showMessage(contactMessage, 'Por favor, completa los campos requeridos', 'error');
-                return;
-            }
-            
-            if (!isValidEmail(email)) {
-                showMessage(contactMessage, 'Por favor, introduce un email válido', 'error');
-                return;
-            }
-            
-            var submitBtn = contactForm.querySelector('button[type="submit"]');
-            var originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Enviando...';
-            submitBtn.disabled = true;
-            
-            setTimeout(function() {
-                showMessage(contactMessage, '¡Mensaje enviado con éxito! Te contactaremos pronto.', 'success');
-                contactForm.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                
-                setTimeout(function() {
-                    if (contactMessage) contactMessage.style.display = 'none';
-                }, 5000);
-            }, 1500);
-        });
-    }
-    
-    // ============================================
-    // 7. FORMULARIO DE RESERVA
-    // ============================================
-    
-    var bookingForm = document.getElementById('bookingForm');
-    var bookingMessage = document.getElementById('bookingMessage');
-    
-    if (bookingForm) {
-        var dateInput = document.getElementById('book_date');
-        if (dateInput) {
-            var today = new Date().toISOString().split('T')[0];
-            dateInput.min = today;
-        }
-        
-        bookingForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            var nameField = document.getElementById('book_name');
-            var emailField = document.getElementById('book_email');
-            var phoneField = document.getElementById('book_phone');
-            var dateField = document.getElementById('book_date');
-            var serviceField = document.getElementById('book_service');
-            
-            var name = nameField ? nameField.value.trim() : '';
-            var email = emailField ? emailField.value.trim() : '';
-            var phone = phoneField ? phoneField.value.trim() : '';
-            var date = dateField ? dateField.value : '';
-            var service = serviceField ? serviceField.value : '';
-            
-            if (!name || !email || !phone || !date || !service) {
-                showMessage(bookingMessage, 'Por favor, completa todos los campos requeridos', 'error');
-                return;
-            }
-            
-            if (!isValidEmail(email)) {
-                showMessage(bookingMessage, 'Por favor, introduce un email válido', 'error');
-                return;
-            }
-            
-            var submitBtn = bookingForm.querySelector('button[type="submit"]');
-            var originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Enviando...';
-            submitBtn.disabled = true;
-            
-            setTimeout(function() {
-                showMessage(bookingMessage, '¡Cita reservada con éxito! Te confirmaremos por email.', 'success');
-                bookingForm.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                
-                setTimeout(function() {
-                    if (bookingMessage) bookingMessage.style.display = 'none';
-                }, 5000);
-            }, 1500);
-        });
-    }
-    
-    // ============================================
-    // 8. ANIMACIÓN DE REVELADO
+    // 5. ANIMACIÓN DE REVELADO
     // ============================================
     
     var revealElements = document.querySelectorAll('.service-card, .portfolio-item, .testimonial-card, .brand-item, .feature');
@@ -254,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ============================================
-    // 9. TRADUCCIONES
+    // 6. TRADUCCIONES (ES, EN, NL)
     // ============================================
     
     var translations = {
@@ -289,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
             brands_title: "Marcas que manejamos",
             brands_subtitle: "Equipos originales y repuestos certificados",
             about_title: "Más de 15 años de experiencia",
-            about_text1: "En HeavyTech Solutions nos especializamos en el mantenimiento y reparación de maquinaria pesada y equipos industriales. Contamos un equipo de técnicos altamente capacitados.",
+            about_text1: "En HeavyTech Solutions nos especializamos en el mantenimiento y reparación de maquinaria pesada y equipos industriales. Contamos con un equipo altamente capacitados.",
             about_text2: "Nuestra misión es minimizar el tiempo de inactividad de tus equipos, garantizando soluciones rápidas, eficientes y duraderas.",
             feature1_title: "Servicio 24/7",
             feature1_text: "Emergencias las 24 horas",
@@ -327,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
             booking_email_label: "Correo electrónico *",
             booking_email_placeholder: "tu@email.com",
             booking_phone_label: "Teléfono *",
-            booking_phone_placeholder: "+599 900 123 456",
+            booking_phone_placeholder: "+5999 5236873",
             booking_date_label: "Fecha preferida *",
             booking_time_label: "Hora preferida",
             booking_time_placeholder: "Selecciona una hora",
@@ -362,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
             contact_email_label: "Correo electrónico *",
             contact_email_placeholder: "tu@email.com",
             contact_phone_label: "Teléfono",
-            contact_phone_placeholder: "+599 900 123 456",
+            contact_phone_placeholder: "+5999 5236873",
             contact_message_label: "Mensaje *",
             contact_message_placeholder: "Escribe tu mensaje aquí...",
             contact_submit_btn: "📧 Enviar mensaje",
@@ -410,7 +288,7 @@ document.addEventListener('DOMContentLoaded', function() {
             brands_title: "Brands we handle",
             brands_subtitle: "Original equipment and certified parts",
             about_title: "Over 15 years of experience",
-            about_text1: "At Heavytech solutions, we specialize in the maintenance and repair of heavy machinery and industrial equipment. We have a team of highly skilled technicians",
+            about_text1: "At HeavyTech Solutions we specialize in the maintenance and repair of heavy machinery and industrial equipment. We have a team of highly trained technicians.",
             about_text2: "Our mission is to minimize your equipment downtime, guaranteeing fast, efficient and long-lasting solutions.",
             feature1_title: "24/7 Service",
             feature1_text: "24-hour emergencies",
@@ -448,7 +326,7 @@ document.addEventListener('DOMContentLoaded', function() {
             booking_email_label: "Email address *",
             booking_email_placeholder: "your@email.com",
             booking_phone_label: "Phone *",
-            booking_phone_placeholder: "+1 234 567 890",
+            booking_phone_placeholder: "+5999 5236873",
             booking_date_label: "Preferred date *",
             booking_time_label: "Preferred time",
             booking_time_placeholder: "Select a time",
@@ -483,7 +361,7 @@ document.addEventListener('DOMContentLoaded', function() {
             contact_email_label: "Email address *",
             contact_email_placeholder: "your@email.com",
             contact_phone_label: "Phone",
-            contact_phone_placeholder: "+1 234 567 890",
+            contact_phone_placeholder: "+5999 5236873",
             contact_message_label: "Message *",
             contact_message_placeholder: "Write your message here...",
             contact_submit_btn: "📧 Send message",
@@ -531,7 +409,7 @@ document.addEventListener('DOMContentLoaded', function() {
             brands_title: "Merken die we behandelen",
             brands_subtitle: "Originele apparatuur en gecertificeerde onderdelen",
             about_title: "Meer dan 15 jaar ervaring",
-            about_text1: "Bij HeavyTech Solutions zijn we gespecialiseerd in het onderhoud en de reparatie van zwaar materieel en industriële apparatuur. Wij beschikken over een team van hooggekwalificeerde technici .",
+            about_text1: "Bij HeavyTech Solutions zijn we gespecialiseerd in het onderhoud en de reparatie van zware machines en industriële apparatuur. We beschikken over een team van hoogopgeleide technici.",
             about_text2: "Onze missie is om de stilstandtijd van uw apparatuur te minimaliseren en snelle, efficiënte en duurzame oplossingen te garanderen.",
             feature1_title: "24/7 Service",
             feature1_text: "24-uurs noodgevallen",
@@ -569,7 +447,7 @@ document.addEventListener('DOMContentLoaded', function() {
             booking_email_label: "E-mailadres *",
             booking_email_placeholder: "uw@email.com",
             booking_phone_label: "Telefoon *",
-            booking_phone_placeholder: "+31 20 123 4567",
+            booking_phone_placeholder: "+5999 5236873",
             booking_date_label: "Gewenste datum *",
             booking_time_label: "Gewenste tijd",
             booking_time_placeholder: "Selecteer een tijd",
@@ -604,7 +482,7 @@ document.addEventListener('DOMContentLoaded', function() {
             contact_email_label: "E-mailadres *",
             contact_email_placeholder: "uw@email.com",
             contact_phone_label: "Telefoon",
-            contact_phone_placeholder: "+31 20 123 4567",
+            contact_phone_placeholder: "+5999 5236873",
             contact_message_label: "Bericht *",
             contact_message_placeholder: "Schrijf uw bericht hier...",
             contact_submit_btn: "📧 Bericht verzenden",
@@ -677,13 +555,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-}); // ← ESTA LLAVE CIERRA EL DOMContentLoaded
+});
 
-/* ============================================
-   Slide de imagenes
-   ============================================ */
 // ============================================
-// 10. SLIDE DE IMÁGENES (HERO)
+// SLIDE DE IMÁGENES (HERO)
 // ============================================
 
 var slides = document.querySelectorAll('.slides img');
