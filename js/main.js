@@ -543,9 +543,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     var savedLang = localStorage.getItem('language');
-    if (savedLang && translations[savedLang]) {
-        translatePage(savedLang);
-    }
+if (savedLang && translations[savedLang]) {
+    translatePage(savedLang);
+} else {
+    translatePage('en');
+}
     
     var langBtns = document.querySelectorAll('.lang-btn');
     for (var i = 0; i < langBtns.length; i++) {
