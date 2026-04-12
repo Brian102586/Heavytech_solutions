@@ -856,7 +856,7 @@ section {
         z-index: 1001;
     }
     
-    /* Menú oculto por defecto - CENTRADO HORIZONTAL Y VERTICAL */
+    /* Menú oculto por defecto */
     .menu {
         position: fixed;
         top: 0;
@@ -868,10 +868,12 @@ section {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 20px;
+        gap: 25px;
         transition: 0.3s ease;
         box-shadow: 0 0 20px rgba(0,0,0,0.1);
         z-index: 1000;
+        margin: 0;
+        padding: 0;
     }
     
     /* Menú visible cuando tiene clase active */
@@ -880,12 +882,20 @@ section {
     }
     
     .menu a {
-        padding: 12px 20px;
+        padding: 12px 25px;
         width: auto;
-        min-width: 150px;
+        min-width: 160px;
         text-align: center;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        text-decoration: none;
         border-bottom: 1px solid #eef2f6;
-        font-size: 1rem;
+        transition: var(--transition);
+    }
+    
+    .menu a:hover {
+        color: var(--blue);
     }
     
     .menu a::after {
