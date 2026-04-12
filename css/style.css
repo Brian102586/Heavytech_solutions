@@ -849,7 +849,7 @@ section {
         position: relative;
     }
     
-    /* Botón hamburguesa - AHORA SÍ SE MUESTRA */
+    /* Botón hamburguesa */
     .mobile-menu-btn {
         display: block;
         order: 1;
@@ -1037,70 +1037,5 @@ section {
     
     .slider {
         height: 250px;
-    }
-}
-/* ============================================
-   RESPONSIVE PARA MÓVILES - MENÚ HAMBURGUESA
-   ============================================ */
-
-@media (max-width: 768px) {
-    /* Botón hamburguesa - FORZAR VISIBILIDAD */
-    .mobile-menu-btn {
-        display: block !important;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 10px;
-        z-index: 1001;
-        order: 1;
-    }
-    
-    .mobile-menu-btn span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background: var(--text-dark);
-        margin: 5px 0;
-        transition: all 0.3s ease;
-        border-radius: 3px;
-    }
-    
-    /* Menú oculto por defecto */
-    .menu {
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 80%;
-        height: 100vh;
-        background: var(--white);
-        flex-direction: column;
-        justify-content: center;
-        gap: 0;
-        transition: 0.3s ease;
-        box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        z-index: 1000;
-    }
-    
-    /* Menú visible */
-    .menu.active {
-        left: 0;
-    }
-    
-    .menu a {
-        padding: 15px 20px;
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid #eef2f6;
-        font-size: 1rem;
-    }
-    
-    .menu a::after {
-        display: none;
-    }
-    
-    .language-selector {
-        order: 2;
-        margin-left: auto;
-        margin-right: 15px;
     }
 }
