@@ -2,19 +2,19 @@
 // HEAVYTECH SOLUTIONS - FUNCIONES COMPLETAS
 // ============================================
 
-document.addEventListener('DOMContentLoaded', function() {
-    
+document.addEventListener('DOMContentLoaded', function () {
+
     // ============================================
     // 1. MENÚ MÓVIL (HAMBURGUESA)
     // ============================================
-    
+
     var mobileBtn = document.querySelector('.mobile-menu-btn');
     var menu = document.querySelector('.menu');
-    
+
     if (mobileBtn && menu) {
-        mobileBtn.addEventListener('click', function() {
+        mobileBtn.addEventListener('click', function () {
             menu.classList.toggle('active');
-            
+
             var spans = mobileBtn.querySelectorAll('span');
             if (menu.classList.contains('active')) {
                 spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
@@ -27,14 +27,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     // ============================================
     // 2. CERRAR MENÚ AL HACER CLIC
     // ============================================
-    
+
     var menuLinks = document.querySelectorAll('.menu a');
     for (var i = 0; i < menuLinks.length; i++) {
-        menuLinks[i].addEventListener('click', function() {
+        menuLinks[i].addEventListener('click', function () {
             if (menu && menu.classList.contains('active')) {
                 menu.classList.remove('active');
                 if (mobileBtn) {
@@ -46,24 +46,24 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     // ============================================
     // 3. SMOOTH SCROLL
     // ============================================
-    
+
     var allLinks = document.querySelectorAll('a[href^="#"]');
     for (var i = 0; i < allLinks.length; i++) {
-        allLinks[i].addEventListener('click', function(e) {
+        allLinks[i].addEventListener('click', function (e) {
             var href = this.getAttribute('href');
             if (href === "#" || href === "") return;
-            
+
             var target = document.querySelector(href);
             if (target) {
                 e.preventDefault();
                 var headerOffset = 80;
                 var elementPosition = target.offsetTop;
                 var offsetPosition = elementPosition - headerOffset;
-                
+
                 window.scrollTo({
                     top: offsetPosition,
                     behavior: 'smooth'
@@ -71,28 +71,28 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     // ============================================
     // 4. ENLACE ACTIVO
     // ============================================
-    
+
     var sections = document.querySelectorAll('section[id]');
     var navLinks = document.querySelectorAll('.menu a');
-    
+
     function updateActiveLink() {
         var current = '';
         var scrollPosition = window.scrollY + 100;
-        
+
         for (var i = 0; i < sections.length; i++) {
             var section = sections[i];
             var sectionTop = section.offsetTop;
             var sectionHeight = section.clientHeight;
-            
+
             if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                 current = section.getAttribute('id');
             }
         }
-        
+
         for (var i = 0; i < navLinks.length; i++) {
             var link = navLinks[i];
             link.classList.remove('active');
@@ -102,17 +102,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
-    
+
     window.addEventListener('scroll', updateActiveLink);
     updateActiveLink();
-    
+
     // ============================================
     // 5. ANIMACIÓN DE REVELADO
     // ============================================
-    
+
     var revealElements = document.querySelectorAll('.service-card, .portfolio-item, .testimonial-card, .brand-item, .feature');
-    
-    var revealObserver = new IntersectionObserver(function(entries) {
+
+    var revealObserver = new IntersectionObserver(function (entries) {
         for (var i = 0; i < entries.length; i++) {
             var entry = entries[i];
             if (entry.isIntersecting) {
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }, { threshold: 0.1 });
-    
+
     for (var i = 0; i < revealElements.length; i++) {
         var el = revealElements[i];
         el.style.opacity = '0';
@@ -130,11 +130,11 @@ document.addEventListener('DOMContentLoaded', function() {
         el.style.transition = 'all 0.6s ease';
         revealObserver.observe(el);
     }
-    
+
     // ============================================
     // 6. TRADUCCIONES (ES, EN, NL)
     // ============================================
-    
+
     var translations = {
         es: {
             nav_inicio: "Inicio",
@@ -267,7 +267,7 @@ document.addEventListener('DOMContentLoaded', function() {
             nav_reservas: "Booking",
             nav_contacto: "Contact",
             hero_badge: "Heavy machinery experts",
-            hero_title: "Global expertise,local<span><br>solution</span>",
+            hero_title: "Global expertise, local<span><br>solution</span>",
             hero_text: "Repair, maintenance and specialized technical service 24/7 for heavy machinery, generators, cranes and lifting equipment.",
             btn_reserve: "📅 Book appointment",
             btn_services: "🔧 View services",
@@ -500,12 +500,12 @@ document.addEventListener('DOMContentLoaded', function() {
             footer_copyright: "© 2026 HeavyTech Solutions - Alle rechten voorbehouden"
         }
     };
-    
+
     var currentLang = 'es';
-    
+
     function translatePage(lang) {
         currentLang = lang;
-        
+
         var elements = document.querySelectorAll('[data-translate]');
         for (var i = 0; i < elements.length; i++) {
             var el = elements[i];
@@ -526,37 +526,74 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         }
-        
+
         localStorage.setItem('language', lang);
-        
-        var langBtns = document.querySelectorAll('.lang-btn');
-        for (var i = 0; i < langBtns.length; i++) {
-            var btn = langBtns[i];
-            if (btn.getAttribute('data-lang') === lang) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        }
-        
+
+        // Actualizar el botón activo del menú desplegable circular
+        updateActiveFlag(lang);
+
         document.documentElement.lang = (lang === 'es' ? 'es' : (lang === 'en' ? 'en' : 'nl'));
     }
+
+    // ============================================
+    // SELECTOR DE IDIOMA - BOTÓN CIRCULAR CON MENÚ
+    // ============================================
+
+    var langActiveBtn = document.getElementById('langActiveBtn');
+    var langDropdownMenu = document.getElementById('langDropdownMenu');
+    var langOptions = document.querySelectorAll('.lang-option');
+
+    // Función para actualizar la bandera del botón activo
+function updateActiveFlag(lang) {
+    var activeFlagImg = document.getElementById('activeFlag');
+    if (!activeFlagImg) return;
     
-    var savedLang = localStorage.getItem('language');
-if (savedLang && translations[savedLang]) {
-    translatePage(savedLang);
-} else {
-    translatePage('en');
+    var flagMap = {
+        'en': 'assets/images/flags/us.svg',
+        'es': 'assets/images/flags/es.svg',
+        'nl': 'assets/images/flags/nl.svg'
+    };
+    
+    activeFlagImg.src = flagMap[lang] || 'assets/images/flags/us.svg';
+    activeFlagImg.alt = lang === 'en' ? 'English' : (lang === 'es' ? 'Español' : 'Nederlands');
 }
-    
-    var langBtns = document.querySelectorAll('.lang-btn');
-    for (var i = 0; i < langBtns.length; i++) {
-        langBtns[i].addEventListener('click', function() {
-            var lang = this.getAttribute('data-lang');
-            translatePage(lang);
+
+    // Abrir/cerrar menú al hacer clic en el botón
+    if (langActiveBtn && langDropdownMenu) {
+        langActiveBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            langDropdownMenu.classList.toggle('show');
+        });
+
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', function (e) {
+            if (langDropdownMenu && !langDropdownMenu.contains(e.target) && !langActiveBtn.contains(e.target)) {
+                langDropdownMenu.classList.remove('show');
+            }
         });
     }
-    
+
+    // Manejar selección de idioma
+    if (langOptions.length > 0) {
+        langOptions.forEach(function (option) {
+            option.addEventListener('click', function () {
+                var lang = this.getAttribute('data-lang');
+                translatePage(lang);
+                if (langDropdownMenu) {
+                    langDropdownMenu.classList.remove('show');
+                }
+            });
+        });
+    }
+
+    // Cargar idioma guardado
+    var savedLang = localStorage.getItem('language');
+    if (savedLang && translations[savedLang]) {
+        translatePage(savedLang);
+    } else {
+        translatePage('en');
+    }
+
 });
 
 // ============================================
@@ -589,22 +626,22 @@ var contactForm = document.getElementById('contactForm');
 var contactMessage = document.getElementById('contactFormMessage');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         var formData = new FormData(contactForm);
-        
+
         contactMessage.textContent = 'Enviando...';
         contactMessage.className = 'form-message info';
         contactMessage.style.display = 'block';
-        
+
         fetch('https://formspree.io/f/mbdppday', {
             method: 'POST',
             body: formData,
             headers: {
                 'Accept': 'application/json'
             }
-        }).then(function(response) {
+        }).then(function (response) {
             if (response.ok) {
                 contactMessage.textContent = '✅ ¡Mensaje enviado con éxito! Te contactaremos pronto.';
                 contactMessage.className = 'form-message success';
@@ -613,14 +650,14 @@ if (contactForm) {
                 contactMessage.textContent = '❌ Hubo un error al enviar el mensaje. Intenta de nuevo.';
                 contactMessage.className = 'form-message error';
             }
-            
-            setTimeout(function() {
+
+            setTimeout(function () {
                 contactMessage.style.display = 'none';
             }, 5000);
-        }).catch(function() {
+        }).catch(function () {
             contactMessage.textContent = '❌ Error de conexión. Verifica tu internet.';
             contactMessage.className = 'form-message error';
-            setTimeout(function() {
+            setTimeout(function () {
                 contactMessage.style.display = 'none';
             }, 5000);
         });
@@ -637,23 +674,23 @@ if (bookingForm) {
         var today = new Date().toISOString().split('T')[0];
         dateInput.min = today;
     }
-    
-    bookingForm.addEventListener('submit', function(e) {
+
+    bookingForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         var formData = new FormData(bookingForm);
-        
+
         bookingMessage.textContent = 'Enviando...';
         bookingMessage.className = 'form-message info';
         bookingMessage.style.display = 'block';
-        
+
         fetch('https://formspree.io/f/mbdppday', {
             method: 'POST',
             body: formData,
             headers: {
                 'Accept': 'application/json'
             }
-        }).then(function(response) {
+        }).then(function (response) {
             if (response.ok) {
                 bookingMessage.textContent = '✅ ¡Cita reservada con éxito! Te confirmaremos por email o teléfono.';
                 bookingMessage.className = 'form-message success';
@@ -662,14 +699,14 @@ if (bookingForm) {
                 bookingMessage.textContent = '❌ Hubo un error al enviar la reserva. Intenta de nuevo.';
                 bookingMessage.className = 'form-message error';
             }
-            
-            setTimeout(function() {
+
+            setTimeout(function () {
                 bookingMessage.style.display = 'none';
             }, 5000);
-        }).catch(function() {
+        }).catch(function () {
             bookingMessage.textContent = '❌ Error de conexión. Verifica tu internet.';
             bookingMessage.className = 'form-message error';
-            setTimeout(function() {
+            setTimeout(function () {
                 bookingMessage.style.display = 'none';
             }, 5000);
         });

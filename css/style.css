@@ -1052,3 +1052,245 @@ section {
         height: 250px;
     }
 }
+
+/* ============================================
+   SELECTOR DE IDIOMA - BOTÓN CIRCULAR
+   ============================================ */
+
+.language-selector {
+    position: relative;
+}
+
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Botón circular con bandera */
+.lang-btn-active {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+}
+
+.lang-btn-active:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: scale(1.05);
+}
+
+/* Bandera redonda */
+.flag-icon {
+    font-size: 1.5rem;
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Menú desplegable (oculto por defecto) */
+.lang-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--white);
+    min-width: 140px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+/* Menú visible */
+.lang-dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Opciones del menú */
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    transition: all 0.2s ease;
+    text-align: left;
+    font-family: inherit;
+}
+
+.lang-option:hover {
+    background: var(--gray-light);
+}
+
+/* Bandera redonda en las opciones del menú */
+.lang-option .flag-icon {
+    font-size: 1.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+    .lang-btn-active {
+        width: 36px;
+        height: 36px;
+        padding: 6px;
+    }
+    
+    .flag-icon {
+        font-size: 1.3rem;
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+    
+    .lang-dropdown-menu {
+        min-width: 130px;
+    }
+    
+    .lang-option {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+    
+    .lang-option .flag-icon {
+        font-size: 1rem;
+        width: 1rem;
+        height: 1rem;
+    }
+}/* ============================================
+   SELECTOR DE IDIOMA - BOTÓN CIRCULAR
+   ============================================ */
+
+.language-selector {
+    position: relative;
+}
+
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Botón circular con bandera */
+.lang-btn-active {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.lang-btn-active:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Bandera redonda como imagen */
+.flag-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+/* Menú desplegable */
+.lang-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--white);
+    min-width: 160px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.lang-dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Opciones del menú */
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    transition: all 0.2s ease;
+    text-align: left;
+    font-family: inherit;
+}
+
+.lang-option:hover {
+    background: var(--gray-light);
+}
+
+.lang-option .flag-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+    .lang-btn-active {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .lang-dropdown-menu {
+        min-width: 140px;
+    }
+    
+    .lang-option {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+    
+    .lang-option .flag-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
