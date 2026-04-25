@@ -25,6 +25,7 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     min-height: 100vh;
+    padding-top: 80px; /* IMPORTANTE: Evita que el header fijo tape el contenido */
 }
 
 ::selection {
@@ -91,15 +92,17 @@ section {
 }
 
 /* ============================================
-   HEADER
+   HEADER - MENÚ FLOTANTE FIJO (SIEMPRE VISIBLE)
    ============================================ */
 
 .header {
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     z-index: 1000;
 }
 
@@ -1178,121 +1181,6 @@ section {
         width: 1rem;
         height: 1rem;
     }
-}/* ============================================
-   SELECTOR DE IDIOMA - BOTÓN CIRCULAR
-   ============================================ */
-
-.language-selector {
-    position: relative;
-}
-
-.lang-dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Botón circular con bandera */
-.lang-btn-active {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    width: 40px;
-    height: 40px;
-    overflow: hidden;
-}
-
-.lang-btn-active:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
-}
-
-/* Bandera redonda como imagen */
-.flag-icon {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    display: block;
-}
-
-/* Menú desplegable */
-.lang-dropdown-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: var(--white);
-    min-width: 160px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    z-index: 1000;
-    margin-top: 8px;
-    overflow: hidden;
-}
-
-.lang-dropdown-menu.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-/* Opciones del menú */
-.lang-option {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    width: 100%;
-    padding: 12px 16px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 0.9rem;
-    color: var(--text-dark);
-    transition: all 0.2s ease;
-    text-align: left;
-    font-family: inherit;
-}
-
-.lang-option:hover {
-    background: var(--gray-light);
-}
-
-.lang-option .flag-icon {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-/* Móviles */
-@media (max-width: 768px) {
-    .lang-btn-active {
-        width: 36px;
-        height: 36px;
-    }
-    
-    .lang-dropdown-menu {
-        min-width: 140px;
-    }
-    
-    .lang-option {
-        padding: 10px 14px;
-        font-size: 0.85rem;
-    }
-    
-    .lang-option .flag-icon {
-        width: 20px;
-        height: 20px;
-    }
 }
 
 /* ============================================
@@ -1348,4 +1236,3 @@ section {
 .btn-secondary:hover .btn-icon {
     filter: brightness(0) invert(1);
 }
-
