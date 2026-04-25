@@ -25,7 +25,7 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     min-height: 100vh;
-    padding-top: 80px; /* IMPORTANTE: Evita que el header fijo tape el contenido */
+    padding-top: 80px; 
 }
 
 ::selection {
@@ -1205,7 +1205,7 @@ section {
     transform: scale(1.1);
 }
 
-/* Si los iconos son SVG y quieres cambiar color al hacer hover */
+
 .info-card:hover .contact-icon-img {
     filter: brightness(0) saturate(100%) invert(47%) sepia(91%) saturate(1128%) hue-rotate(196deg) brightness(98%) contrast(91%);
 }
@@ -1220,7 +1220,7 @@ section {
     margin-right: 8px;
     vertical-align: middle;
     display: inline-block;
-    filter: brightness(0) invert(1); /* Para botones azules (texto blanco) */
+    filter: brightness(0) invert(1); 
     transition: var(--transition);
 }
 
@@ -1228,7 +1228,6 @@ section {
     transform: scale(1.1);
 }
 
-/* Si el botón es secundario (borde azul, texto azul) */
 .btn-secondary .btn-icon {
     filter: brightness(0) saturate(100%) invert(31%) sepia(81%) saturate(1232%) hue-rotate(196deg) brightness(92%) contrast(94%);
 }
