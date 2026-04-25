@@ -186,7 +186,7 @@
 
     <!-- ============================================
      HEADER 
-============================================ -->
+    ============================================ -->
     <header class="header">
         <div class="container nav">
             <a href="#" class="logo">
@@ -197,7 +197,7 @@
                 </div>
             </a>
 
-            <button class="mobile-menu-btn" aria-label="Menú">
+            <button class="mobile-menu-btn" aria-label="Menú de navegación">
                 <span></span><span></span><span></span>
             </button>
 
@@ -212,17 +212,17 @@
 
             <div class="language-selector">
                 <div class="lang-dropdown">
-                    <button class="lang-btn-active" id="langActiveBtn">
+                    <button class="lang-btn-active" id="langActiveBtn" aria-label="Cambiar idioma">
                         <img src="assets/images/flags/us.svg" alt="English" class="flag-icon" id="activeFlag">
                     </button>
                     <div class="lang-dropdown-menu" id="langDropdownMenu">
-                        <button class="lang-option" data-lang="en">
+                        <button class="lang-option" data-lang="en" aria-label="Idioma inglés">
                             <img src="assets/images/flags/us.svg" alt="English" class="flag-icon"> English
                         </button>
-                        <button class="lang-option" data-lang="es">
+                        <button class="lang-option" data-lang="es" aria-label="Idioma español">
                             <img src="assets/images/flags/es.svg" alt="Español" class="flag-icon"> Español
                         </button>
-                        <button class="lang-option" data-lang="nl">
+                        <button class="lang-option" data-lang="nl" aria-label="Idioma neerlandés">
                             <img src="assets/images/flags/nl.svg" alt="Nederlands" class="flag-icon"> Nederlands
                         </button>
                     </div>
@@ -231,9 +231,9 @@
         </div>
     </header>
 
-    <!-- ============================================
+        <!-- ============================================
      HERO - INICIO
-============================================ -->
+    ============================================ -->
     <section id="inicio" class="hero">
         <div class="container hero-grid">
             <div class="hero-text">
@@ -242,24 +242,31 @@
                 <p data-translate="hero_text">Reparación, mantenimiento y servicio técnico especializado para
                     maquinaria pesada, generadores, grúas y equipos de elevación.</p>
                 <div class="buttons">
-                    <a href="#reservas" class="btn btn-primary" data-translate="btn_reserve">📅 Reservar cita</a>
-                    <a href="#servicios" class="btn btn-secondary" data-translate="btn_services">🔧 Ver servicios</a>
+                    <a href="#reservas" class="btn btn-primary" data-translate="btn_reserve">
+                        <img src="assets/icons/calendar.svg" alt="Reservar" class="btn-icon">
+                        Reservar cita
+                    </a>
+                    <a href="#servicios" class="btn btn-secondary" data-translate="btn_services">
+                        <img src="assets/icons/gear.svg" alt="Servicios" class="btn-icon-secondary">
+                        Ver servicios
+                    </a>
                 </div>
             </div>
         </div>
         <div class="slider">
             <div class="slides">
-                <img src="assets/images/image1.jpg" class="active">
-                <img src="assets/images/image2.png">
-                <img src="assets/images/image3.jpeg">
-                <img src="assets/images/image4.webp">
+                <img src="assets/images/image1.jpg" class="active"
+                    alt="Excavadora Caterpillar en reparación hidráulica">
+                <img src="assets/images/image2.png" alt="Generador Volvo recibiendo mantenimiento preventivo">
+                <img src="assets/images/image3.jpeg" alt="Grúa telescópica Liebherr en operación de elevación">
+                <img src="assets/images/image4.webp" alt="Taller HeavyTech Solutions con técnicos especializados">
             </div>
         </div>
     </section>
-
+    
     <!-- ============================================
      SERVICIOS 
-============================================ -->
+    ============================================ -->
     <section id="servicios" class="services section">
         <div class="container">
             <h2 class="title" data-translate="services_title">Nuestros servicios</h2>
@@ -267,39 +274,51 @@
 
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🔧</div>
+                    <div class="service-icon">
+                        <img src="assets/icons/gear.svg" alt="Reparación mecánica" class="service-img">
+                    </div>
                     <h3 data-translate="service1_title">Reparación mecánica</h3>
                     <p data-translate="service1_text">Motores, transmisiones, diferenciales y sistemas de frenos
                         industriales.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🛢️</div>
+                    <div class="service-icon">
+                        <img src="assets/icons/bulldozer.svg" alt="Sistemas hidráulicos" class="service-img">
+                    </div>
                     <h3 data-translate="service2_title">Sistemas hidráulicos</h3>
                     <p data-translate="service2_text">Cilindros, bombas, válvulas y sistemas de alta presión.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">⚡</div>
+                    <div class="service-icon">
+                        <img src="assets/icons/lightning.svg" alt="Reparación eléctrica" class="service-img">
+                    </div>
                     <h3 data-translate="service3_title">Reparación eléctrica</h3>
                     <p data-translate="service3_text">Arrancadores, alternadores, tableros de control y cableado.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🖥️</div>
+                    <div class="service-icon">
+                        <img src="assets/icons/circuitry.svg" alt="Diagnóstico electrónico" class="service-img">
+                    </div>
                     <h3 data-translate="service4_title">Diagnóstico electrónico</h3>
                     <p data-translate="service4_text">Escáner profesional, reprogramación de ECUs y sensores.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🏗️</div>
+                    <div class="service-icon">
+                        <img src="assets/icons/crane-tower.svg" alt="Grúas y elevación" class="service-img">
+                    </div>
                     <h3 data-translate="service5_title">Grúas y elevación</h3>
                     <p data-translate="service5_text">Mantenimiento y reparación de grúas horquilla, telescópicas y
                         puente grúa.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🏭</div>
+                    <div class="service-icon">
+                        <img src="assets/icons/plug-charging.svg" alt="Generadores" class="service-img">
+                    </div>
                     <h3 data-translate="service6_title">Generadores</h3>
                     <p data-translate="service6_text">Mantenimiento preventivo y correctivo de generadores diésel y gas.
                     </p>
@@ -310,7 +329,7 @@
 
     <!-- ============================================
      MARCAS QUE MANEJAMOS 
-============================================ -->
+    ============================================ -->
     <section id="marcas" class="brands section">
         <div class="container">
             <h2 class="title" data-translate="brands_title">Marcas que manejamos</h2>
@@ -342,7 +361,7 @@
 
     <!-- ============================================
      QUIÉNES SOMOS 
-============================================ -->
+    ============================================ -->
     <section id="nosotros" class="about section">
         <div class="container">
             <div class="about-grid">
@@ -386,7 +405,8 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="assets/images/image6.jpg" alt="Taller HeavyTech Solutions" class="about-img">
+                    <img src="assets/images/image6.jpg" alt="Taller HeavyTech Solutions con equipo de técnicos"
+                        class="about-img">
                 </div>
             </div>
         </div>
@@ -394,7 +414,7 @@
 
     <!-- ============================================
      RESERVAR CITA 
-============================================ -->
+    ============================================ -->
     <section id="reservas" class="booking section">
         <div class="container">
             <h2 class="title" data-translate="booking_title">Reservar cita</h2>
@@ -471,8 +491,10 @@
                         <textarea name="Mensaje" id="book_message" rows="3" data-translate="booking_message_placeholder"
                             placeholder="Describe la falla o el servicio que necesitas..."></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary" data-translate="booking_submit_btn">📅 Reservar
-                        cita</button>
+                    <button type="submit" class="btn btn-primary" data-translate="booking_submit_btn">
+                        <img src="assets/icons/calendar.svg" alt="Reservar" class="btn-icon">
+                        Reservar cita
+                    </button>
                     <div id="bookingFormMessage" class="form-message"></div>
                 </form>
             </div>
@@ -481,7 +503,7 @@
 
     <!-- ============================================
      CONTACTO 
-============================================ -->
+    ============================================ -->
     <section id="contacto" class="contact-section section">
         <div class="container">
             <h2 class="title" data-translate="contact_title">Contacto</h2>
@@ -512,29 +534,39 @@
                             data-translate="contact_message_placeholder" placeholder="Escribe tu mensaje aquí..."
                             required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary" data-translate="contact_submit_btn">📧 Enviar
-                        mensaje</button>
+                    <button type="submit" class="btn btn-primary" data-translate="contact_submit_btn">
+                        <img src="assets/icons/envelope.svg" alt="Enviar" class="btn-icon">
+                        Enviar mensaje
+                    </button>
                     <div id="contactMessage" class="form-message"></div>
                 </form>
 
                 <div class="contact-info">
                     <div class="info-card">
-                        <div class="info-icon">📞</div>
+                        <div class="info-icon">
+                            <img src="assets/icons/phone-call.svg" alt="Teléfono" class="contact-icon-img">
+                        </div>
                         <h3 data-translate="contact_phone_title">Teléfono</h3>
                         <a href="tel:+59995236873">+5999 5236873</a>
                     </div>
                     <div class="info-card">
-                        <div class="info-icon">💬</div>
+                        <div class="info-icon">
+                            <img src="assets/icons/whatsapp-logo.svg" alt="WhatsApp" class="contact-icon-img">
+                        </div>
                         <h3 data-translate="contact_whatsapp_title">WhatsApp</h3>
                         <a href="https://wa.me/59995236873">+5999 5236873</a>
                     </div>
                     <div class="info-card">
-                        <div class="info-icon">✉️</div>
+                        <div class="info-icon">
+                            <img src="assets/icons/microsoft-outlook-logo.svg" alt="Email" class="contact-icon-img">
+                        </div>
                         <h3 data-translate="contact_email_title">Email</h3>
                         <a href="mailto:info@heavytech-solutions.com">info@heavytech-solutions.com</a>
                     </div>
                     <div class="info-card">
-                        <div class="info-icon">🕐</div>
+                        <div class="info-icon">
+                            <img src="assets/icons/clock.svg" alt="Horario" class="contact-icon-img">
+                        </div>
                         <h3 data-translate="contact_hours_title">Horario</h3>
                         <p data-translate="contact_hours_text">Lun-Vie: 8:00 - 20:00 Sáb: 8:00 - 14:00</p>
                     </div>
@@ -545,7 +577,7 @@
 
     <!-- ============================================
      FOOTER 
-============================================ -->
+    ============================================ -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -579,9 +611,18 @@
                 <div class="footer-col">
                     <h4 data-translate="footer_follow_us">Síguenos</h4>
                     <div class="social-links">
-                        <a href="#">🔗 LinkedIn</a>
-                        <a href="#">📸 Instagram</a>
-                        <a href="#">📘 Facebook</a>
+                        <a href="#" aria-label="LinkedIn" class="social-link">
+                            <img src="assets/icons/linkedin-logo.svg" alt="LinkedIn" class="social-icon">
+                            LinkedIn
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <img src="assets/icons/instagram-logo.svg" alt="Instagram" class="social-icon">
+                            Instagram
+                        </a>
+                        <a href="#" aria-label="Facebook" class="social-link">
+                            <img src="assets/icons/facebook-logo.svg" alt="Facebook" class="social-icon">
+                            Facebook
+                        </a>
                     </div>
                 </div>
             </div>
@@ -592,8 +633,10 @@
     </footer>
 
     <!-- Botón flotante WhatsApp -->
-    <a href="https://wa.me/59995236873" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
-        💬 WhatsApp 24/7
+    <a href="https://wa.me/59995236873" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp 24/7">
+        <img src="assets/icons/whatsapp-logo.svg" alt="WhatsApp" class="whatsapp-icon">
+        WhatsApp 24/7
     </a>
 
     <script src="js/main.js"></script>

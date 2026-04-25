@@ -1294,3 +1294,58 @@ section {
         height: 20px;
     }
 }
+
+/* ============================================
+   ICONOS DE CONTACTO
+   ============================================ */
+
+.info-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.contact-icon-img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+.info-card:hover .contact-icon-img {
+    transform: scale(1.1);
+}
+
+/* Si los iconos son SVG y quieres cambiar color al hacer hover */
+.info-card:hover .contact-icon-img {
+    filter: brightness(0) saturate(100%) invert(47%) sepia(91%) saturate(1128%) hue-rotate(196deg) brightness(98%) contrast(91%);
+}
+
+/* ============================================
+   ICONO EN BOTONES
+   ============================================ */
+
+.btn-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    vertical-align: middle;
+    display: inline-block;
+    filter: brightness(0) invert(1); /* Para botones azules (texto blanco) */
+    transition: var(--transition);
+}
+
+.btn-primary:hover .btn-icon {
+    transform: scale(1.1);
+}
+
+/* Si el botón es secundario (borde azul, texto azul) */
+.btn-secondary .btn-icon {
+    filter: brightness(0) saturate(100%) invert(31%) sepia(81%) saturate(1232%) hue-rotate(196deg) brightness(92%) contrast(94%);
+}
+
+.btn-secondary:hover .btn-icon {
+    filter: brightness(0) invert(1);
+}
+
