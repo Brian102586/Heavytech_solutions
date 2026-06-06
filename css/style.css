@@ -25,7 +25,7 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     min-height: 100vh;
-    padding-top: 80px; 
+    padding-top: 80px;
 }
 
 ::selection {
@@ -92,7 +92,7 @@ section {
 }
 
 /* ============================================
-   HEADER - MENÚ FLOTANTE FIJO (SIEMPRE VISIBLE)
+   HEADER - MENÚ FLOTANTE FIJO
    ============================================ */
 
 .header {
@@ -114,36 +114,36 @@ section {
     min-height: 80px;
 }
 
-.logo-texto {
-    text-align: right;
-    line-height: 1.1;
+/* ============================================
+   LOGO - IMAGEN
+   ============================================ */
+
+.logo {
+    display: inline-block;
+    line-height: 0;
 }
 
-.logo-heavy {
-    font-size: 1.3rem;
-    font-weight: 800;
-    letter-spacing: 3px;
-    color: var(--blue);
+.logo-img {
+    height: 120px;
+    width: auto;
     display: block;
+    transition: opacity 0.3s ease;
 }
 
-.logo-tech {
-    font-size: 1.3rem;
-    font-weight: 800;
-    letter-spacing: 3px;
-    color: var(--text-dark);
-    display: block;
-    margin-top: -4px;
+.logo-img:hover {
+    opacity: 0.85;
 }
 
-.logo-solutions {
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 4px;
-    color: var(--gray);
-    display: block;
-    margin-top: 2px;
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .logo-img {
+        height: 45px;
+    }
 }
+
+/* ============================================
+   MENÚ DE NAVEGACIÓN
+   ============================================ */
 
 .menu {
     display: flex;
@@ -167,7 +167,7 @@ section {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--yellow);
+    background: #FF6600;
     transition: var(--transition);
 }
 
@@ -200,30 +200,95 @@ section {
     border-radius: 3px;
 }
 
-/* Language Selector */
+/* ============================================
+   SELECTOR DE IDIOMA
+   ============================================ */
+
 .language-selector {
-    display: flex;
-    gap: 8px;
+    position: relative;
 }
 
-.lang-btn {
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.lang-btn-active {
     background: transparent;
     border: none;
-    padding: 4px 8px;
-    font-size: 0.8rem;
     cursor: pointer;
-    transition: var(--transition);
-    border-radius: 20px;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
 }
 
-.lang-btn:hover {
+.lang-btn-active:hover {
+    background: rgba(0, 0, 0, 0.05);
     transform: scale(1.05);
-    color: var(--blue);
 }
 
-.lang-btn.active {
-    background: var(--blue);
-    color: white;
+.flag-icon {
+    font-size: 1.5rem;
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.lang-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--white);
+    min-width: 140px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.lang-dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    transition: all 0.2s ease;
+    text-align: left;
+    font-family: inherit;
+}
+
+.lang-option:hover {
+    background: var(--gray-light);
+}
+
+.lang-option .flag-icon {
+    font-size: 1.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
 }
 
 /* ============================================
@@ -309,6 +374,41 @@ section {
 }
 
 /* ============================================
+   HERO SLIDER
+   ============================================ */
+
+.slider {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    margin-top: 25px;
+}
+
+.slides {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slides img.active {
+    opacity: 1;
+}
+
+/* ============================================
    SERVICIOS
    ============================================ */
 
@@ -334,8 +434,22 @@ section {
 }
 
 .service-icon {
-    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 20px;
+    min-height: 60px;
+}
+
+.service-img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+.service-card:hover .service-img {
+    transform: scale(1.1);
 }
 
 .service-card h3 {
@@ -440,88 +554,6 @@ section {
 .about-img:hover {
     transform: scale(1.02);
     box-shadow: var(--shadow-hover);
-}
-
-/* ============================================
-   PORTAFOLIO
-   ============================================ */
-
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.portfolio-item {
-    background: white;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-}
-
-.portfolio-item:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-}
-
-.portfolio-image {
-    background: var(--gray-light);
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-}
-
-.portfolio-info {
-    padding: 20px;
-}
-
-.portfolio-info h3 {
-    margin-bottom: 8px;
-}
-
-.portfolio-info p {
-    color: var(--gray);
-    font-size: 0.9rem;
-}
-
-/* ============================================
-   TESTIMONIOS
-   ============================================ */
-
-.testimonials {
-    background: var(--gray-light);
-}
-
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.testimonial-card {
-    background: white;
-    padding: 30px;
-    border-radius: var(--radius-md);
-    border-left: 4px solid var(--yellow);
-}
-
-.testimonial-card p {
-    font-style: italic;
-    margin-bottom: 20px;
-    color: var(--gray);
-}
-
-.testimonial-author strong {
-    display: block;
-    color: var(--blue);
-}
-
-.testimonial-author span {
-    font-size: 0.85rem;
-    color: var(--gray);
 }
 
 /* ============================================
@@ -636,8 +668,21 @@ section {
 }
 
 .info-icon {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.contact-icon-img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+.info-card:hover .contact-icon-img {
+    transform: scale(1.1);
 }
 
 .info-card h3 {
@@ -691,7 +736,7 @@ section {
 }
 
 .footer-col p {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
     line-height: 1.6;
 }
 
@@ -709,7 +754,7 @@ section {
 }
 
 .footer-col ul li a {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     transition: var(--transition);
 }
@@ -724,21 +769,36 @@ section {
     gap: 15px;
 }
 
-.social-links a {
-    color: rgba(255,255,255,0.7);
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     transition: var(--transition);
 }
 
-.social-links a:hover {
+.social-link:hover {
     color: var(--yellow);
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    transition: var(--transition);
+}
+
+.social-link:hover .social-icon {
+    filter: brightness(0) saturate(100%) invert(84%) sepia(61%) saturate(534%) hue-rotate(360deg) brightness(102%) contrast(105%);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
     font-size: 0.85rem;
 }
 
@@ -769,46 +829,37 @@ section {
     background: #20b859;
 }
 
+.whatsapp-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin-right: 5px;
+}
+
 /* ============================================
-   HERO SLIDER
+   ICONOS EN BOTONES
    ============================================ */
 
-.hero-slider {
-    width: 100%;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
+.btn-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    vertical-align: middle;
+    display: inline-block;
+    filter: brightness(0) invert(1);
+    transition: var(--transition);
 }
 
-.slider {
-    width: 100%;
-    height: 500px;
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius-lg);
-    margin-top: 25px;
+.btn-primary:hover .btn-icon {
+    transform: scale(1.1);
 }
 
-.slides {
-    width: 100%;
-    height: 100%;
-    position: relative;
+.btn-secondary .btn-icon {
+    filter: brightness(0) saturate(100%) invert(31%) sepia(81%) saturate(1232%) hue-rotate(196deg) brightness(92%) contrast(94%);
 }
 
-.slides img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
-}
-
-.slides img.active {
-    opacity: 1;
+.btn-secondary:hover .btn-icon {
+    filter: brightness(0) invert(1);
 }
 
 /* ============================================
@@ -847,20 +898,17 @@ section {
         margin-bottom: 30px;
     }
     
-    /* Header y navegación para móvil */
     .nav {
         min-height: 70px;
         position: relative;
     }
     
-    /* Botón hamburguesa */
     .mobile-menu-btn {
         display: block;
         order: 1;
         z-index: 1001;
     }
     
-    /* Menú oculto por defecto */
     .menu {
         position: fixed;
         top: 0;
@@ -874,13 +922,12 @@ section {
         align-items: center;
         gap: 25px;
         transition: 0.3s ease;
-        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         z-index: 1000;
         margin: 0;
         padding: 0;
     }
     
-    /* Menú visible cuando tiene clase active */
     .menu.active {
         left: 0;
     }
@@ -912,7 +959,6 @@ section {
         margin-right: 15px;
     }
     
-    /* Hero */
     .hero {
         padding: 40px 0;
     }
@@ -935,13 +981,11 @@ section {
         justify-content: center;
     }
     
-    /* Slider */
     .slider {
         height: 300px;
         margin-top: 20px;
     }
     
-    /* Servicios */
     .services-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -951,7 +995,6 @@ section {
         padding: 20px;
     }
     
-    /* Marcas */
     .brands-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
@@ -962,7 +1005,6 @@ section {
         font-size: 0.8rem;
     }
     
-    /* Características */
     .about-features {
         grid-template-columns: 1fr;
         gap: 15px;
@@ -973,7 +1015,6 @@ section {
         max-width: 100%;
     }
     
-    /* Formularios */
     .form-row {
         grid-template-columns: 1fr;
         gap: 0;
@@ -984,13 +1025,11 @@ section {
         padding: 25px;
     }
     
-    /* Contacto info */
     .contact-info {
         grid-template-columns: 1fr;
         gap: 15px;
     }
     
-    /* Footer */
     .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -1001,7 +1040,6 @@ section {
         justify-content: center;
     }
     
-    /* WhatsApp float */
     .whatsapp-float {
         bottom: 20px;
         right: 20px;
@@ -1055,184 +1093,4 @@ section {
     .slider {
         height: 250px;
     }
-}
-
-/* ============================================
-   SELECTOR DE IDIOMA - BOTÓN CIRCULAR
-   ============================================ */
-
-.language-selector {
-    position: relative;
-}
-
-.lang-dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Botón circular con bandera */
-.lang-btn-active {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    width: 40px;
-    height: 40px;
-}
-
-.lang-btn-active:hover {
-    background: rgba(0, 0, 0, 0.05);
-    transform: scale(1.05);
-}
-
-/* Bandera redonda */
-.flag-icon {
-    font-size: 1.5rem;
-    display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-/* Menú desplegable (oculto por defecto) */
-.lang-dropdown-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: var(--white);
-    min-width: 140px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    z-index: 1000;
-    margin-top: 8px;
-    overflow: hidden;
-}
-
-/* Menú visible */
-.lang-dropdown-menu.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-/* Opciones del menú */
-.lang-option {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    padding: 12px 16px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 0.9rem;
-    color: var(--text-dark);
-    transition: all 0.2s ease;
-    text-align: left;
-    font-family: inherit;
-}
-
-.lang-option:hover {
-    background: var(--gray-light);
-}
-
-/* Bandera redonda en las opciones del menú */
-.lang-option .flag-icon {
-    font-size: 1.2rem;
-    width: 1.2rem;
-    height: 1.2rem;
-    border-radius: 50%;
-}
-
-/* Móviles */
-@media (max-width: 768px) {
-    .lang-btn-active {
-        width: 36px;
-        height: 36px;
-        padding: 6px;
-    }
-    
-    .flag-icon {
-        font-size: 1.3rem;
-        width: 1.3rem;
-        height: 1.3rem;
-    }
-    
-    .lang-dropdown-menu {
-        min-width: 130px;
-    }
-    
-    .lang-option {
-        padding: 10px 14px;
-        font-size: 0.85rem;
-    }
-    
-    .lang-option .flag-icon {
-        font-size: 1rem;
-        width: 1rem;
-        height: 1rem;
-    }
-}
-
-/* ============================================
-   ICONOS DE CONTACTO
-   ============================================ */
-
-.info-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.contact-icon-img {
-    width: 45px;
-    height: 45px;
-    object-fit: contain;
-    transition: var(--transition);
-}
-
-.info-card:hover .contact-icon-img {
-    transform: scale(1.1);
-}
-
-
-.info-card:hover .contact-icon-img {
-    filter: brightness(0) saturate(100%) invert(47%) sepia(91%) saturate(1128%) hue-rotate(196deg) brightness(98%) contrast(91%);
-}
-
-/* ============================================
-   ICONO EN BOTONES
-   ============================================ */
-
-.btn-icon {
-    width: 18px;
-    height: 18px;
-    margin-right: 8px;
-    vertical-align: middle;
-    display: inline-block;
-    filter: brightness(0) invert(1); 
-    transition: var(--transition);
-}
-
-.btn-primary:hover .btn-icon {
-    transform: scale(1.1);
-}
-
-.btn-secondary .btn-icon {
-    filter: brightness(0) saturate(100%) invert(31%) sepia(81%) saturate(1232%) hue-rotate(196deg) brightness(92%) contrast(94%);
-}
-
-.btn-secondary:hover .btn-icon {
-    filter: brightness(0) invert(1);
 }
