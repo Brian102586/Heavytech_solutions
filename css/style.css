@@ -38,8 +38,8 @@ body {
    ============================================ */
 
 :root {
-    --blue: #1E5BB8;
-    --blue-dark: #0F3D91;
+    --blue: #0A1F44;
+    --blue-dark: #0A1F44;
     --blue-light: #3A7BD5;
     --yellow: #FFC107;
     --yellow-dark: #E0A800;
@@ -47,7 +47,7 @@ body {
     --gray-light: #f8f9fa;
     --gray: #6c757d;
     --gray-dark: #343a40;
-    --text-dark: #212529;
+    --text-dark: #1A1A1A;
     --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
     --shadow-md: 0 4px 8px rgba(0,0,0,0.08);
     --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
@@ -167,7 +167,7 @@ section {
     left: 0;
     width: 0;
     height: 2px;
-    background: #FF6600;
+    background: #FF5A00;
     transition: var(--transition);
 }
 
@@ -429,7 +429,7 @@ section {
 
 .service-card:hover {
     transform: translateY(-8px);
-    border-color: var(--yellow);
+    border-color: #FF5A00;
     box-shadow: var(--shadow-hover);
 }
 
@@ -486,7 +486,7 @@ section {
 .brand-item:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
-    color: var(--blue);
+    color: #FF5A00;
 }
 
 /* ============================================
@@ -696,7 +696,7 @@ section {
 }
 
 .info-card a:hover {
-    color: var(--yellow);
+    color: #FF5A00;
 }
 
 .info-card p {
@@ -742,7 +742,7 @@ section {
 
 .footer-col h4 {
     margin-bottom: 20px;
-    color: var(--yellow);
+    color: #FF5A00;
 }
 
 .footer-col ul {
@@ -760,7 +760,7 @@ section {
 }
 
 .footer-col ul li a:hover {
-    color: var(--yellow);
+    color: #FF5A00;
     padding-left: 5px;
 }
 
@@ -779,7 +779,7 @@ section {
 }
 
 .social-link:hover {
-    color: var(--yellow);
+    color: #FF5A00;
 }
 
 .social-icon {
@@ -791,7 +791,7 @@ section {
 }
 
 .social-link:hover .social-icon {
-    filter: brightness(0) saturate(100%) invert(84%) sepia(61%) saturate(534%) hue-rotate(360deg) brightness(102%) contrast(105%);
+    filter: brightness(0) saturate(100%) invert(55%) sepia(98%) saturate(1748%) hue-rotate(346deg) brightness(102%) contrast(103%);
 }
 
 .footer-bottom {
